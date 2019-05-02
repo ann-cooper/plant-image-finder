@@ -1,2 +1,2 @@
 # jelitto-image-finder
-Find image for plants.
+Find images for plants.
