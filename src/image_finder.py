@@ -9,7 +9,10 @@ from collections import defaultdict
 import re
 import logging
 
+logger = logging.getLogger(__name__)
 
+
+## PREP
 # Read in seed spreadsheet
 jelitto = pd.read_excel('jelitto_pricelist.xls')
 
@@ -19,7 +22,7 @@ jelitto = jelitto.iloc[0:25, :]
 # Add row for image url
 image_url = jelitto['Item No.'].apply(lambda row: 'https://www.jelitto.com/out/pictures/master/product/1/' + row.lower() + '.jpg')
 
-
+## DEFINE RESP CODE ERROR HANDLING
 def response_code_error(url):
     """Confirm that Jelitto has an image of the plant."""
     try:
@@ -27,9 +30,11 @@ def response_code_error(url):
     except urllib.error.URLError:
         return np.nan
 
+## SETUP FIRST PASS CHECKING URLS
 # Save checked urls to a dictionary.
 confident_urls = defaultdict(str)
 
+## DO FIRST PASS CHECKING
 # Threaded Jelitto image url checking.
 with concurrent.futures.ThreadPoolExecutor(max_workers=25) as executor:
     check_url = {executor.submit(response_code_error, url): url for url in image_url}
@@ -45,8 +50,7 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=25) as executor:
         except Exception as exc:
             print('%r generated an exception: %s' % (url, exc))
 
-
-
+## PREP BASE OUTPUT DF
 # Cast confident_urls to a dataframe sorted by index (the Item No.)
 df = pd.DataFrame.from_dict(confident_urls, orient='index', columns=['url'])
 df.sort_index(inplace=True)
@@ -58,6 +62,8 @@ jelitto.sort_index(inplace=True)
 # Add image_url column to jelitto
 jelitto['image_url'] = df['url'].values
 
+
+## PREP SECOND PASS CHECKING
 # Create list of wikimedia_urls for rows where jelitto had no image 
 # and create alternate lookups for the common name to check if the scientific name has no results
 wikimedia_urls = []
@@ -87,6 +93,7 @@ def alt_url(url, scientific=False):
         else:
             alternate_urls.append((_id, np.nan)) 
 
+## DO SECOND PASS CHECKING
 # Checking wikimedia urls with scientific name lookup
 with concurrent.futures.ThreadPoolExecutor(max_workers=50) as executor:
     # Start the load operations and mark each future with its URL
@@ -103,6 +110,7 @@ if alternate_lookups:
         for future in concurrent.futures.as_completed(check_url):
             url = check_url[future]
 
+## COMBINE NEW IMAGE URLS WITH BASE DF FOR OUTPUT
 # Cast alternate_urls to df with index aligned to jelitto
 altdf = pd.DataFrame(alternate_urls)
 altdf.rename({0: '_id', 1: 'image_url'}, axis=1, inplace=True)
