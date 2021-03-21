@@ -9,3 +9,12 @@ To run locally:
 - Activate the venv `source venv/bin/activate`
 - Then to open and interact with the notebook, run `jupyter notebook`
 - To deactivate the venv: `deactivate`
+
+## Managing dependencies
+- Dependencies are managed with pip-tools.
+- To update or change dependencies: activate the venv, then install pip-tools with `pip install pip-tools`
+- Adjust the packages listed in requirements/main.in as needed.
+- To re-output the main.txt: `pip-compile requirements/main.in --output-file=- > requirements/main.txt`
+- To upgrade the packages: `pip-compile requirements/main.txt`
+- To install the packages in your venv: `pip-sync requirements/main.txt`
+

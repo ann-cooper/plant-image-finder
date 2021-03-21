@@ -2,5 +2,6 @@
 
 python3 -m venv venv
 source venv/bin/activate
-python3 -m pip install poetry
-poetry install
+python3 -m pip install --upgrade pip
+pip install pip-tools
+pip-sync requirements/main.txt
