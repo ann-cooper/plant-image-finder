@@ -6,10 +6,6 @@
 #
 aiohttp==3.7.4.post0
     # via -r requirements/main.in
-appnope==0.1.2
-    # via
-    #   ipykernel
-    #   ipython
 argon2-cffi==20.1.0
     # via notebook
 async-generator==1.10
@@ -99,7 +95,7 @@ jupyterlab-pygments==0.1.2
     # via nbconvert
 jupyterlab-widgets==1.0.0
     # via ipywidgets
-lxml==4.6.2
+lxml==4.6.3
     # via -r requirements/main.in
 markupsafe==1.1.1
     # via jinja2
