@@ -6,10 +6,6 @@
 #
 aiohttp==3.7.4.post0
     # via -r requirements/main.in
-appnope==0.1.2
-    # via
-    #   ipykernel
-    #   ipython
 argon2-cffi==20.1.0
     # via notebook
 async-generator==1.10
@@ -233,7 +229,7 @@ traitlets==5.0.5
     #   qtconsole
 typing-extensions==3.7.4.3
     # via aiohttp
-urllib3==1.26.4
+urllib3==1.26.5
     # via requests
 wcwidth==0.2.5
     # via prompt-toolkit
