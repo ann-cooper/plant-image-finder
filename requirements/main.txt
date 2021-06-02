@@ -5,11 +5,7 @@
 #    pip-compile --output-file=- requirements/main.in
 #
 aiohttp==3.7.4.post0
-    # via -r requirements/main.in
-appnope==0.1.2
-    # via
-    #   ipykernel
-    #   ipython
+    # via -r main.in
 argon2-cffi==20.1.0
     # via notebook
 async-generator==1.10
@@ -17,7 +13,7 @@ async-generator==1.10
 async-timeout==3.0.1
     # via aiohttp
 asyncio==3.4.3
-    # via -r requirements/main.in
+    # via -r main.in
 attrs==20.3.0
     # via
     #   aiohttp
@@ -94,13 +90,13 @@ jupyter-core==4.7.1
     #   notebook
     #   qtconsole
 jupyter==1.0.0
-    # via -r requirements/main.in
+    # via -r main.in
 jupyterlab-pygments==0.1.2
     # via nbconvert
 jupyterlab-widgets==1.0.0
     # via ipywidgets
 lxml==4.6.2
-    # via -r requirements/main.in
+    # via -r main.in
 markupsafe==1.1.1
     # via jinja2
 mistune==0.8.4
@@ -134,7 +130,7 @@ packaging==20.9
     #   bleach
     #   pytest
 pandas==1.2.3
-    # via -r requirements/main.in
+    # via -r main.in
 pandocfilters==1.4.3
     # via nbconvert
 parso==0.8.1
@@ -171,14 +167,14 @@ pyparsing==2.4.7
 pyrsistent==0.17.3
     # via jsonschema
 pytest-cov==2.11.1
-    # via -r requirements/main.in
+    # via -r main.in
 pytest-html==3.1.1
-    # via -r requirements/main.in
+    # via -r main.in
 pytest-metadata==1.11.0
     # via pytest-html
 pytest==6.2.2
     # via
-    #   -r requirements/main.in
+    #   -r main.in
     #   pytest-cov
     #   pytest-html
     #   pytest-metadata
@@ -198,7 +194,7 @@ qtconsole==5.0.3
 qtpy==1.9.0
     # via qtconsole
 requests==2.25.1
-    # via -r requirements/main.in
+    # via -r main.in
 send2trash==1.5.0
     # via notebook
 six==1.15.0
@@ -233,7 +229,7 @@ traitlets==5.0.5
     #   qtconsole
 typing-extensions==3.7.4.3
     # via aiohttp
-urllib3==1.26.4
+urllib3==1.26.5
     # via requests
 wcwidth==0.2.5
     # via prompt-toolkit
@@ -242,7 +238,7 @@ webencodings==0.5.1
 widgetsnbextension==3.5.1
     # via ipywidgets
 xlrd==2.0.1
-    # via -r requirements/main.in
+    # via -r main.in
 yarl==1.6.3
     # via aiohttp
 
