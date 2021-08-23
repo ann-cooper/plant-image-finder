@@ -6,10 +6,6 @@
 #
 aiohttp==3.7.4.post0
     # via -r requirements/main.in
-appnope==0.1.2
-    # via
-    #   ipykernel
-    #   ipython
 argon2-cffi==20.1.0
     # via notebook
 async-generator==1.10
@@ -56,17 +52,17 @@ ipykernel==5.5.0
     #   jupyter-console
     #   notebook
     #   qtconsole
+ipython==7.21.0
+    # via
+    #   ipykernel
+    #   ipywidgets
+    #   jupyter-console
 ipython-genutils==0.2.0
     # via
     #   nbformat
     #   notebook
     #   qtconsole
     #   traitlets
-ipython==7.21.0
-    # via
-    #   ipykernel
-    #   ipywidgets
-    #   jupyter-console
 ipywidgets==7.6.3
     # via jupyter
 jedi==0.18.0
@@ -77,6 +73,8 @@ jinja2==2.11.3
     #   notebook
 jsonschema==3.2.0
     # via nbformat
+jupyter==1.0.0
+    # via -r requirements/main.in
 jupyter-client==6.1.12
     # via
     #   ipykernel
@@ -93,8 +91,6 @@ jupyter-core==4.7.1
     #   nbformat
     #   notebook
     #   qtconsole
-jupyter==1.0.0
-    # via -r requirements/main.in
 jupyterlab-pygments==0.1.2
     # via nbconvert
 jupyterlab-widgets==1.0.0
@@ -123,7 +119,7 @@ nbformat==5.1.2
     #   notebook
 nest-asyncio==1.5.1
     # via nbclient
-notebook==6.2.0
+notebook==6.4.1
     # via
     #   jupyter
     #   widgetsnbextension
@@ -170,18 +166,18 @@ pyparsing==2.4.7
     # via packaging
 pyrsistent==0.17.3
     # via jsonschema
-pytest-cov==2.11.1
-    # via -r requirements/main.in
-pytest-html==3.1.1
-    # via -r requirements/main.in
-pytest-metadata==1.11.0
-    # via pytest-html
 pytest==6.2.2
     # via
     #   -r requirements/main.in
     #   pytest-cov
     #   pytest-html
     #   pytest-metadata
+pytest-cov==2.11.1
+    # via -r requirements/main.in
+pytest-html==3.1.1
+    # via -r requirements/main.in
+pytest-metadata==1.11.0
+    # via pytest-html
 python-dateutil==2.8.1
     # via
     #   jupyter-client
