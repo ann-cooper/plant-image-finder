@@ -144,7 +144,7 @@ notebook==6.4.6
     # via
     #   jupyter
     #   widgetsnbextension
-numpy==1.21.4
+numpy==1.22.0
     # via pandas
 packaging==21.3
     # via
